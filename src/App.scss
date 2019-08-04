@@ -1,0 +1,206 @@
+// Pokemon Type Color
+$Fire :  #EE8130;
+$Water :  #6390F0;
+$Electric :  #F7D02C;
+$Grass :  #7AC74C;
+$Ice :  #96D9D6;
+$Fighting :  #C22E28;
+$Poison :  #A33EA1;
+$Ground :  #E2BF65;
+$Flying :  #A98FF3;
+$Psychic : #F95587;
+$Bug :  #A6B91A;
+$Rock :  #B6A136;
+$Ghost :  #735797;
+$Dragon :  #6F35FC;
+$Dark :  #705746;
+$Steel :  #B7B7CE;
+$Fairy :  #D685AD;
+$Normal: #d1cecb;
+$white: #fafafa;
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+html{
+  overflow-x: hidden;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.PokeContainer {
+  width:100vw;
+  height:100%;
+  background-size: contain;
+  background-position: center;
+  background-image:  linear-gradient(to right,#929191 0%,#c4c3c3 100%),url('./pokeWallpaper.jpg');
+  // background-image:  rgba(22,33,22,0.5),url('./pokeWallpaper.jpg');
+  background-blend-mode: lighten;
+}
+
+.pokeTitle {
+  width: 20%;
+  height: 20%;
+  margin: 2% 0 2% 0;
+}
+
+.PokeCard {
+  text-align: center;
+  border: 1px solid rgba(196, 196, 196,.2);
+  box-shadow: 5px 5px 10px 1px rgb(182, 182, 182);
+  cursor: pointer;
+}
+.PokeCard:hover {
+  box-shadow:5px 5px 10px 1px rgb(87, 87, 87);
+  cursor: pointer;
+  .pokeSprite {
+    transform: scale(3)
+  }
+}
+.pokeName {
+  font-size: 2vw;
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+}
+
+.pokeSprite {
+  transform: scale(2);
+}
+.nameContainer{
+  background-color: #fafafa;
+  border-top: 1px solid rgb(71, 71, 71);
+  text-align: left;
+  padding-left: 5%;
+  margin-top: 20px;
+}
+
+
+.pokeType {
+  color: black;
+  font-size: 0.6rem;
+  margin-right: 2%;
+  padding: 4%;
+  min-width: 50px; 
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(196, 196, 196,.2);
+}
+
+//Button Css
+.disabled {
+  pointer-events: none;
+}
+
+.btn-primary{
+  background: #115cff !important;
+  color: $Electric !important;
+  font-weight: 600;
+  &:hover{
+    background: $Electric !important;
+    color: #115cff !important;
+  }
+}
+
+
+
+
+//Pokemon Description CSS
+.pokeDesc{
+  position: absolute;
+  top: -10%;
+  margin: 0 auto 0 auto;
+  z-index: 1;
+  background-color: rgba(238, 238, 238, 0.678);
+  color: #333;
+  border-radius: 12px;
+}
+
+.pokeDescSprite{
+  transform: scale(3);
+}
+
+
+
+//Pokemon type
+.poison {
+  color: $white;
+  background:$Poison;
+}
+
+.grass {
+  color: $white;
+  background: $Grass;
+}
+
+.water {
+  color: $white;
+  background: $Water;
+}
+
+.fire {
+  color: $white;
+  background: $Fire;
+}
+
+.normal {
+  color:#222;
+  background: $Normal;
+}
+
+.flying {
+  color: $white;
+  background: $Flying; 
+}
+
+.bug {
+  color: $white;
+  background: $Bug; 
+}
+.electric {
+  color: $white;
+  background: $Electric; 
+}
+.ice {
+  color: $white;
+  background: $Ice; 
+}
+.ground {
+  color: $white;
+  background: $Ground; 
+}
+.fighting {
+  color: $white;
+  background: $Fighting; 
+}
+.psychic {
+  color: $white;
+  background: $Psychic; 
+}
+.rock {
+  color: $white;
+  background: $Rock; 
+}
+.ghost {
+  color: $white;
+  background: $Ghost; 
+}
+.dragon {
+  color: $white;
+  background: $Dragon; 
+}
+.dark {
+  color: $white;
+  background: $Dark; 
+}
+.steel {
+  color: $white;
+  background: $Steel; 
+}
+.fairy {
+  color: $white;
+  background: $Fairy; 
+}
