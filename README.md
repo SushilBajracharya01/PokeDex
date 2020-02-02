@@ -20,7 +20,7 @@ The main goals of this project were
 ## Demo
 👉 live demo: <a href="https://sushilbajracharya01.github.io/PokeDex/" target="_blank" >here</a>
 
-<img src="aboutApp/home.png" margin="5px">
+<img src="aboutApp/Home.png" margin="5px">
 
 ## Features
 
