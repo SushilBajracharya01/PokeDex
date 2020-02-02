@@ -48,7 +48,8 @@ class PokeCard extends Component {
             console.error("An error occured while initializing : ", e)
         })
 
-        const text = `${data.name}. id${data.id}.. a ${data.types} Type Pokemon, its moves are ${data.moves.map(move => move + '.')} `
+        const text = `${data.name}. i.d${data.id}.. a ${data.types} Type Pokemon, its moves are ${data.moves.map(move => move + '.')} `;
+        speech.cancel();
         speech.speak({
             text: text,
         }).then(() => {
