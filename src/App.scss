@@ -1,21 +1,21 @@
 // Pokemon Type Color
-$Fire :  #EE8130;
-$Water :  #6390F0;
-$Electric :  #F7D02C;
-$Grass :  #7AC74C;
-$Ice :  #96D9D6;
-$Fighting :  #C22E28;
-$Poison :  #A33EA1;
-$Ground :  #E2BF65;
-$Flying :  #A98FF3;
-$Psychic : #F95587;
-$Bug :  #A6B91A;
-$Rock :  #B6A136;
-$Ghost :  #735797;
-$Dragon :  #6F35FC;
-$Dark :  #705746;
-$Steel :  #B7B7CE;
-$Fairy :  #D685AD;
+$Fire: #ee8130;
+$Water: #6390f0;
+$Electric: #f7d02c;
+$Grass: #7ac74c;
+$Ice: #96d9d6;
+$Fighting: #c22e28;
+$Poison: #a33ea1;
+$Ground: #e2bf65;
+$Flying: #a98ff3;
+$Psychic: #f95587;
+$Bug: #a6b91a;
+$Rock: #b6a136;
+$Ghost: #735797;
+$Dragon: #6f35fc;
+$Dark: #705746;
+$Steel: #b7b7ce;
+$Fairy: #d685ad;
 $Normal: #d1cecb;
 $white: #fafafa;
 
@@ -23,8 +23,11 @@ $white: #fafafa;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-html{
+html {
   overflow-x: hidden;
+}
+body {
+  height: 100%;
 }
 
 .capitalize {
@@ -32,13 +35,53 @@ html{
 }
 
 .PokeContainer {
-  width:100vw;
-  height:100%;
+  width: 100vw;
+  min-height: 100vh;
   background-size: contain;
   background-position: center;
-  background-image:  linear-gradient(to right,#929191 0%,#c4c3c3 100%),url('./pokeWallpaper.jpg');
+  background-image: linear-gradient(to right, #929191 0%, #c4c3c3 100%),
+    url("./pokeWallpaper.jpg");
   // background-image:  rgba(22,33,22,0.5),url('./pokeWallpaper.jpg');
   background-blend-mode: lighten;
+}
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(255,0,0,0.8); 
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+background: rgba(255,0,0,0.4); 
+}
+.dexContainer {
+  height: 75vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+}
+
+.loadingDiv {
+  display: flex;
+  height: 15vh;
+  justify-content: center;
+  .pokeballSpinner {
+    max-width: 100%;
+    transform-origin: center;
+    animation: rotate 800ms ease-in-out infinite;
+  }
 }
 
 .pokeTitle {
@@ -49,28 +92,34 @@ html{
 
 .PokeCard {
   text-align: center;
-  border: 1px solid rgba(196, 196, 196,.2);
+  border: 1px solid rgba(196, 196, 196, 0.2);
   box-shadow: 5px 5px 10px 1px rgb(182, 182, 182);
   cursor: pointer;
+  transition: box-shadow 350ms;
 }
 .PokeCard:hover {
-  box-shadow:5px 5px 10px 1px rgb(87, 87, 87);
+  box-shadow: 5px 5px 10px 1px rgb(87, 87, 87);
   cursor: pointer;
   .pokeSprite {
-    transform: scale(3)
+    transform: scale(3);
   }
+}
+
+.spriteContainer {
+  min-height: 100px;
 }
 .pokeName {
   font-size: 2vw;
   color: black;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-weight: 700;
 }
 
 .pokeSprite {
+  transition: transform 350ms !important;
   transform: scale(2);
 }
-.nameContainer{
+.nameContainer {
   background-color: #fafafa;
   border-top: 1px solid rgb(71, 71, 71);
   text-align: left;
@@ -78,16 +127,15 @@ html{
   margin-top: 20px;
 }
 
-
 .pokeType {
   color: black;
   font-size: 0.6rem;
   margin-right: 2%;
   padding: 4%;
-  min-width: 50px; 
+  min-width: 50px;
   border-radius: 20px;
   text-align: center;
-  border: 1px solid rgba(196, 196, 196,.2);
+  border: 1px solid rgba(196, 196, 196, 0.2);
 }
 
 //Button Css
@@ -95,21 +143,18 @@ html{
   pointer-events: none;
 }
 
-.btn-primary{
+.btn-primary {
   background: #115cff !important;
   color: $Electric !important;
   font-weight: 600;
-  &:hover{
+  &:hover {
     background: $Electric !important;
     color: #115cff !important;
   }
 }
 
-
-
-
 //Pokemon Description CSS
-.pokeDesc{
+.pokeDesc {
   position: absolute;
   top: -10%;
   margin: 0 auto 0 auto;
@@ -119,16 +164,14 @@ html{
   border-radius: 12px;
 }
 
-.pokeDescSprite{
+.pokeDescSprite {
   transform: scale(3);
 }
-
-
 
 //Pokemon type
 .poison {
   color: $white;
-  background:$Poison;
+  background: $Poison;
 }
 
 .grass {
@@ -147,60 +190,69 @@ html{
 }
 
 .normal {
-  color:#222;
+  color: #222;
   background: $Normal;
 }
 
 .flying {
   color: $white;
-  background: $Flying; 
+  background: $Flying;
 }
 
 .bug {
   color: $white;
-  background: $Bug; 
+  background: $Bug;
 }
 .electric {
   color: $white;
-  background: $Electric; 
+  background: $Electric;
 }
 .ice {
   color: $white;
-  background: $Ice; 
+  background: $Ice;
 }
 .ground {
   color: $white;
-  background: $Ground; 
+  background: $Ground;
 }
 .fighting {
   color: $white;
-  background: $Fighting; 
+  background: $Fighting;
 }
 .psychic {
   color: $white;
-  background: $Psychic; 
+  background: $Psychic;
 }
 .rock {
   color: $white;
-  background: $Rock; 
+  background: $Rock;
 }
 .ghost {
   color: $white;
-  background: $Ghost; 
+  background: $Ghost;
 }
 .dragon {
   color: $white;
-  background: $Dragon; 
+  background: $Dragon;
 }
 .dark {
   color: $white;
-  background: $Dark; 
+  background: $Dark;
 }
 .steel {
   color: $white;
-  background: $Steel; 
+  background: $Steel;
 }
 .fairy {
   color: $white;
-  background: $Fairy; 
+  background: $Fairy;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
