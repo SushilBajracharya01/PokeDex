@@ -57,33 +57,37 @@ const PokeDex = () => {
                 />
               </div>
             ) : (
-              <InfiniteScroll
-                dataLength={pokemonResults?.length} //This is important field to render the next data
-                next={() => {
-                  console.log("NEXT CALLED");
-                  fetchPokemon(pokemons.next);
-                }}
-                hasMore={pokemons.next}
-                loader={
-                  <div className="loadingDiv">
-                    <img
-                      className="pokeballSpinner"
-                      src={PokeballSvg}
-                      alt="pokeball loading spiner"
-                    />
-                  </div>
-                }
-                className="dexContainer row d-flex justify-content-center"
-                endMessage={
-                  <p style={{ textAlign: "center" }}>
-                    <b>Yay! You have seen it all</b>
-                  </p>
-                }
-              >
-                {pokemonResults?.map((pokemon) => (
-                  <PokeCard key={pokemon.url} url={pokemon.url} />
-                ))}
-              </InfiniteScroll>
+              <div className="ScrollerHolder" id="scrollerHolder">
+                <InfiniteScroll
+                  pageStart={0}
+                  dataLength={pokemonResults?.length} //This is important field to render the next data
+                  next={() => {
+                    fetchPokemon(pokemons.next);
+                  }}
+                  hasMore={pokemons.next}
+                  loader={
+                    <div className="loadingDiv">
+                      <img
+                        className="pokeballSpinner"
+                        src={PokeballSvg}
+                        alt="pokeball loading spiner"
+                      />
+                    </div>
+                  }
+                  className="row d-flex justify-content-center"
+                  endMessage={
+                    <p style={{ textAlign: "center" }}>
+                      <b>Yay! You have seen it all</b>
+                    </p>
+                  }
+                  scrollableTarget='scrollerHolder'
+                  scrollThreshold={0.9}
+                >
+                  {pokemonResults?.map((pokemon) => (
+                    <PokeCard key={pokemon.url} url={pokemon.url} />
+                  ))}
+                </InfiniteScroll>
+              </div>
             )}
           </div>
         </div>
